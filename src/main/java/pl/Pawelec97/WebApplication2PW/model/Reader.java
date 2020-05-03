@@ -1,9 +1,9 @@
-package pl.Pawelec97.WebApplication2PW.entities;
+package pl.Pawelec97.WebApplication2PW.model;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Reader")
+@Table(name = "reader")
 public class Reader {
     @Id
     @Column(name = "ID")

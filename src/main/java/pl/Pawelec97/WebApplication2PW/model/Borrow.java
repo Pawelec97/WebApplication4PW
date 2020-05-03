@@ -1,9 +1,9 @@
-package pl.Pawelec97.WebApplication2PW.entities;
+package pl.Pawelec97.WebApplication2PW.model;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Borrow")
+@Table(name = "borrow")
 public class Borrow {
     @Id
     @Column(name = "id")
