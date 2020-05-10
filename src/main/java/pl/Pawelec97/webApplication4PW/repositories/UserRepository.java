@@ -14,10 +14,10 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Override
-    Optional<User> findById(Long aLong);
+    Optional<User> findById(int id);
 
     Optional<User> findByUsername(String username);
+
     User findFirstByOrderByIdDesc();
 
 //    @Query("SELECT new pl.pawelec97.webApplication4PW.DTO.UsersDTO(u.id, u.username, u.password, u.role) FROM Users u")

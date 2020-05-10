@@ -1,20 +1,18 @@
 package pl.pawelec97.webApplication4PW;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.pawelec97.webApplication4PW.model.Book;
-import pl.pawelec97.webApplication4PW.model.User;
 import pl.pawelec97.webApplication4PW.repositories.BookRepository;
-import pl.pawelec97.webApplication4PW.repositories.UserRepository;
-import pl.pawelec97.webApplication4PW.security.UserService;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@org.springframework.stereotype.Controller
+@Controller
 public class BooksController {
 
 
@@ -23,49 +21,29 @@ public class BooksController {
     private List<Book> books;
 
 
-    private BookRepository bookRepository;
-    final UserRepository userRepository;
-    final UserService userService;
+    private final BookRepository bookRepository;
 
-    @Autowired
-    public BooksController(BookRepository bookRepository, UserRepository userRepository,
-                           UserService userService){
+    public BooksController(BookRepository bookRepository) {
         dane = "xxxxx";
         this.bookRepository = bookRepository;
-        this.userRepository = userRepository;
-        this.userService = userService;
     }
 
 
     @GetMapping("/index")
     public String welcome(Model model) {
 
-        model.addAttribute("currentDate",  LocalDate.now().toString());
+        model.addAttribute("currentDate", LocalDate.now().toString());
         model.addAttribute("input", pole);
-        model.addAttribute("mojedane",dane);
+        model.addAttribute("mojedane", dane);
         model.addAttribute("books", bookRepository.findAll());
-        model.addAttribute("addbook",new Book());
+        model.addAttribute("addbook", new Book());
         return "index";
     }
 
     @PostMapping("/add")
-    public String addBook(Model model,@ModelAttribute Book addbook){
+    public String addBook(Model model, @ModelAttribute Book addbook) {
         bookRepository.save(addbook);
-        return "redirect:/";
+        return "redirect:/index";
     }
-    @GetMapping("/")
-    public String home(Model model) {
-        return "nie jestes zalogowany";
-    }
-
-
-//    @PostMapping("/")
-//    public String addCar(Model model, @RequestParam String input) {
-//        dane += input;
-//        model.addAttribute("currentDate", LocalDate.now().toString());
-//        model.addAttribute("input", pole);
-//        model.addAttribute("mojedane",dane);
-//        return "index";
-//    }
 
 }

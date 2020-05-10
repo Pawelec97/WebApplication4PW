@@ -12,20 +12,13 @@ import javax.persistence.*;
 public class Book {
     @Id
     @Column(name = "ID")
-    @Getter
-    @Setter
     private Integer id;
 
     @Column(name = "Title")
-    @Getter
-    @Setter
     private String title;
 
     @Column(name = "Author")
-    @Getter
-    @Setter
     private String author;
-
 
 
 }

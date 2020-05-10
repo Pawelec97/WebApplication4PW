@@ -3,13 +3,15 @@ package pl.pawelec97.webApplication4PW;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.pawelec97.webApplication4PW.model.User;
 import pl.pawelec97.webApplication4PW.repositories.UserRepository;
 import pl.pawelec97.webApplication4PW.security.UserService;
 
 import java.util.List;
+
+;
 
 @Controller
 @RequestMapping("/user")
@@ -42,8 +44,4 @@ public class UsersController {
         return "redirect:/index";
     }
 
-    @PostMapping("/login")
-    public String login() {
-        return "redirect:/index";
-    }
 }
