@@ -1,16 +1,16 @@
-package pl.Pawelec97.WebApplication2PW.DTOs;
+package pl.pawelec97.webApplication4PW.DTOs;
 
 public class BorrowDTO {
-    private String id;
+    private Integer id;
     private java.sql.Date borrowDate;
     private String bookId;
     private String readerId;
 
-    public String getId() {
-        return this.id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

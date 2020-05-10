@@ -1,4 +1,4 @@
-package pl.Pawelec97.WebApplication2PW.model;
+package pl.pawelec97.webApplication4PW.model;
 
 import lombok.*;
 

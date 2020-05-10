@@ -1,4 +1,4 @@
-package pl.Pawelec97.WebApplication2PW.model;
+package pl.pawelec97.webApplication4PW.model;
 
 import javax.persistence.*;
 
@@ -7,23 +7,23 @@ import javax.persistence.*;
 public class Borrow {
     @Id
     @Column(name = "id")
-    private String id;
+    private Integer id;
 
     @Column(name = "borrow_date")
     private java.sql.Date borrowDate;
 
     @Column(name = "book_id")
-    private String bookId;
+    private Integer bookId;
 
     @Column(name = "reader_id")
-    private String readerId;
+    private Integer readerId;
 
 
-    public String getId() {
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -35,19 +35,19 @@ public class Borrow {
         this.borrowDate = borrowDate;
     }
 
-    public String getBookId() {
+    public Integer getBookId() {
         return this.bookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(Integer bookId) {
         this.bookId = bookId;
     }
 
-    public String getReaderId() {
+    public Integer getReaderId() {
         return this.readerId;
     }
 
-    public void setReaderId(String readerId) {
+    public void setReaderId(Integer readerId) {
         this.readerId = readerId;
     }
 }

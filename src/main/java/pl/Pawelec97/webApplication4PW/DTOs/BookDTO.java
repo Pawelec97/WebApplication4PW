@@ -1,4 +1,4 @@
-package pl.Pawelec97.WebApplication2PW.DTOs;
+package pl.pawelec97.webApplication4PW.DTOs;
 
 public class BookDTO {
     private Integer id;

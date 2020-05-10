@@ -1,7 +1,7 @@
-package pl.Pawelec97.WebApplication2PW.repositories;
+package pl.pawelec97.webApplication4PW.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.Pawelec97.WebApplication2PW.model.Book;
+import pl.pawelec97.webApplication4PW.model.Book;
 
 public interface BookRepository extends JpaRepository<Book,Integer> {
 //    List<Book> findAll();

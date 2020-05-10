@@ -1,23 +1,10 @@
-package pl.Pawelec97.WebApplication2PW.model;
+package pl.pawelec97.webApplication4PW.DTOs;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "reader")
-public class Reader {
-    @Id
-    @Column(name = "ID")
+public class ReaderDTO {
     private Integer id;
-
-    @Column(name = "Name")
     private String name;
-
-    @Column(name = "Last_name")
     private String lastName;
-
-    @Column(name = "Phone_number")
     private Long phoneNumber;
-
 
     public Integer getId() {
         return this.id;
