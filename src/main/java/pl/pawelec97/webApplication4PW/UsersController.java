@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.pawelec97.webApplication4PW.model.User;
 import pl.pawelec97.webApplication4PW.repositories.UserRepository;
-import pl.pawelec97.webApplication4PW.security.UserService;
+import pl.pawelec97.webApplication4PW.services.UserService;
 
 import java.util.List;
 

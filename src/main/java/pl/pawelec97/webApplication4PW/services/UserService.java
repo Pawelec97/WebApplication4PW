@@ -1,4 +1,4 @@
-package pl.pawelec97.webApplication4PW.security;
+package pl.pawelec97.webApplication4PW.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
