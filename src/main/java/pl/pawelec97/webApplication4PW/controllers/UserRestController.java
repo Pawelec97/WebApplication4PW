@@ -1,4 +1,4 @@
-package pl.pawelec97.webApplication4PW;
+package pl.pawelec97.webApplication4PW.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

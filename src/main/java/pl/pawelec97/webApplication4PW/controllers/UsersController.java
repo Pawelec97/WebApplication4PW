@@ -1,4 +1,4 @@
-package pl.pawelec97.webApplication4PW;
+package pl.pawelec97.webApplication4PW.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +22,10 @@ public class UsersController {
     public UsersController(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
         this.userService = userService;
+    }
+    @GetMapping("/chat")
+    public String chat() {
+        return "chat";
     }
 
     @GetMapping("/welcome-page")

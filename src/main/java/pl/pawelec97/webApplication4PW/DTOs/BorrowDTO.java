@@ -1,10 +1,11 @@
 package pl.pawelec97.webApplication4PW.DTOs;
 
+
 public class BorrowDTO {
     private Integer id;
     private java.sql.Date borrowDate;
     private String bookId;
-    private String readerId;
+    private String userId;
 
     public Integer getId() {
         return id;
@@ -30,11 +31,11 @@ public class BorrowDTO {
         this.bookId = bookId;
     }
 
-    public String getReaderId() {
-        return this.readerId;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public void setReaderId(String readerId) {
-        this.readerId = readerId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

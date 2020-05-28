@@ -1,9 +1,16 @@
 package pl.pawelec97.webApplication4PW.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "borrow")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Borrow {
     @Id
     @Column(name = "id")
@@ -15,39 +22,12 @@ public class Borrow {
     @Column(name = "book_id")
     private Integer bookId;
 
-    @Column(name = "reader_id")
-    private Integer readerId;
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @Column(name = "return_date")
+    private java.sql.Date returnDate;
 
 
-    public Integer getId() {
-        return this.id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public java.sql.Date getBorrowDate() {
-        return this.borrowDate;
-    }
-
-    public void setBorrowDate(java.sql.Date borrowDate) {
-        this.borrowDate = borrowDate;
-    }
-
-    public Integer getBookId() {
-        return this.bookId;
-    }
-
-    public void setBookId(Integer bookId) {
-        this.bookId = bookId;
-    }
-
-    public Integer getReaderId() {
-        return this.readerId;
-    }
-
-    public void setReaderId(Integer readerId) {
-        this.readerId = readerId;
-    }
 }

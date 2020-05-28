@@ -1,4 +1,4 @@
-package pl.pawelec97.webApplication4PW;
+package pl.pawelec97.webApplication4PW.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
