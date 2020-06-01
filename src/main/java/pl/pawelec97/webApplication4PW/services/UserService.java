@@ -24,7 +24,7 @@ public class UserService {
         appUser.setPassword(encodePassword);
         int id = getIdForNewUser();
         appUser.setId(id);
-        appUser.setRole("ROLE_ADMIN");
+        appUser.setRole("ROLE_USER");
 
         usersRepository.save(appUser);
     }

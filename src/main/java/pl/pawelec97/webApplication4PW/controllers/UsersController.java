@@ -1,5 +1,7 @@
 package pl.pawelec97.webApplication4PW.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +11,12 @@ import pl.pawelec97.webApplication4PW.model.User;
 import pl.pawelec97.webApplication4PW.repositories.UserRepository;
 import pl.pawelec97.webApplication4PW.services.UserService;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 ;
 
 @Controller
-@RequestMapping("/user")
 public class UsersController {
     final UserRepository userRepository;
     private UserService userService;
@@ -45,7 +47,25 @@ public class UsersController {
     @PostMapping("/register")
     public String register(User appUser) {
         userService.createAndAddUser(appUser);
-        return "redirect:/index";
+        return "redirect:/book/index";
     }
+    @GetMapping("/user-info")
+    public String userInfo(Model model, HttpSession httpSession) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+        int currentUserId;
+        String username;
+        User currentUser;
+        if (principal instanceof UserDetails) {
+            currentUser = (User)principal;
+            currentUserId = ((User) (principal)).getId();
+            username = ((User) (principal)).getUsername();
+        } else {
+            currentUser = null;
+            currentUserId = -1;
+            username = principal.toString();
+        }
+        httpSession.setAttribute("user",currentUser);
+        return "user-info";
+    }
 }

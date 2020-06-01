@@ -1,6 +1,7 @@
 package pl.pawelec97.webApplication4PW.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.pawelec97.webApplication4PW.model.User;
@@ -25,5 +26,10 @@ public class UserRestController {
     @GetMapping("/all")
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public User getById(@PathVariable int id) {
+        return userRepository.findById(id).get();
     }
 }

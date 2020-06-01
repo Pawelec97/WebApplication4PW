@@ -33,8 +33,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.headers().disable();
         http.authorizeRequests()
-                .antMatchers("/index").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/book/*").hasAuthority("ROLE_ADMIN")
                 .and()
-                .formLogin().defaultSuccessUrl("/index");
+                .formLogin().defaultSuccessUrl("/book/index");
     }
 }

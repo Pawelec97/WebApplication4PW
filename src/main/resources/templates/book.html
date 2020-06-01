@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Title</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/book/index}">Wypożyczalnia książek</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/chat" th:href="@{/chat}">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/user-info" th:href="@{/user-info}" th:action="@{/user-info}" method="get"> <th:block th:text="${session.currentUser.getUsername()}"></th:block></a>
+<!--                    <a class="nav-link" href="/user/sign-up" th:action="@{/sign-up}" method="get">${session.currentUser}</a>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--<h2>Autor projektu: Paweł Wiśniewski</h2>-->
+<!--<h2>Aktualna data:-->
+<!--    <th:block th:text="${currentDate}"></th:block>-->
+<!--</h2>-->
+
+
+
+<div class="container">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th> ID</th>
+            <th> Tytul</th>
+            <th> Autor</th>
+            <th> Akcje</th>
+
+        </tr>
+        </thead>
+        <tbody class="thead-light">
+        <tr th:each="book : ${books}">
+            <td><span th:text="${book.getId()}"> ID </span></td>
+            <td><span th:text="${book.title}"> Title </span></td>
+            <td><span th:text="${book.author}"> Author </span></td>
+            <td>
+                <!--            <button type="button" class="btn btn-warning" th:action="@{/edit/{id}(id = ${book.getId()})}">Edit</button>-->
+                <!--            <button type="button" class="btn btn-danger" th:action="@{/delete/{id}(id = ${book.getId()})}">Delete</button>-->
+                <form th:action="@{/book/edit/{id}(id = ${book.getId()})}" method="get"
+                      class="d-inline-block">
+                    <button type="button" onclick="submit()" class="btn btn-warning" value="edit">
+                        Edit
+                    </button>
+                </form>
+                <form th:action="@{/book/delete/{id}(id = ${book.getId()})}" method="get"
+                      class="d-inline-block">
+                    <button type="button" onclick="submit()" class="btn btn-danger" value="delete">
+                        Delete
+                    </button>
+                </form>
+
+            </td>
+            <!--        <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>-->
+            <!--        <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>-->
+        </tr>
+        </tbody>
+    </table>
+    <form th:action="@{/book/add}" th:object="${addbook}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        Autor: <input type="text" th:field="*{author}"/>
+        Tytul: <input type="text" th:field="*{title}"/>
+        <p><input type="submit" value="dodaj"></p>
+    </form>
+</div>
+</body>
+</html>

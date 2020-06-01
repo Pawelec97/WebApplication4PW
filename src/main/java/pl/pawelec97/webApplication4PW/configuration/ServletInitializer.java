@@ -18,7 +18,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	@Bean
 	public MessageSource messageSource() {
 		final ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setBasenames("classpath:/tss_pl");
+	//	messageSource.setBasenames("classpath:/tss_pl");
 		messageSource.setUseCodeAsDefaultMessage(true);
 		messageSource.setDefaultEncoding("ISO-8859-2");
 		messageSource.setCacheSeconds(5);

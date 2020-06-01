@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>SignUp</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 </head>
 <body>
+<div class="container" style="margin: auto">
 <h1>Register</h1>
-<form th:action="@{/user/register}" method="post">
-    Login:
-    <input type="text" name="username">
-    Password:
-    <input type="text" name="password">
-    <input type="submit" value="sing up!">
+<form th:action="@{/register}" method="post">
+
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" name="username" id="login">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Hasło</label>
+        <input type="password" name="password" id="password">
+    </div>
+    <input type="submit" value="Zarejestruj!">
 </form>
+</div>
 </body>
 </html>

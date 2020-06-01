@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>Title</title>
     <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 
 </head>
@@ -18,34 +18,20 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/user/chat" th:href="@{/sign-up}">Register</a>
+                    <a class="nav-link" href="/user/chat" th:href="@{/chat}">Chat</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/user/user-info" th:href="@{/login}" th:action="@{/user-info}" method="get">Login</a>
+                    <a class="nav-link" href="/user/user-info" th:href="@{/user-info}" th:action="@{/user-info}" method="get"> <th:block th:text="${session.currentUser.getUsername()}"></th:block></a>
                     <!--                    <a class="nav-link" href="/user/sign-up" th:action="@{/sign-up}" method="get">${session.currentUser}</a>-->
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-
-<!--Login: tst-->
-<!--Password: tst-->
 <div class="container">
-    <h1>REST API:</h1>
-    <form th:action="@{/rest/users/all}" method="get">
-        <input type="submit" class="btn btn-primary btn-lg" value="get all users"/>
-    </form><br/>
-    <form th:action="@{/rest/books/all}" method="get">
-        <input type="submit" class="btn btn-primary btn-lg" value="get all books"/>
-    </form><br/>
-<!--    <h2>Wyszukaj książke:</h2>-->
-<!--    <form th:action="@{/rest/books/byId}" method="get">-->
-<!--        ID: <input type="text" name="id"> <br>-->
-<!--        Tytul: <input type="text" name="title"><br>-->
-<!--        Autor: <input type="text" name="author"><br>-->
-<!--        <input type="submit" class="btn btn-primary btn-lg" value="search"/>-->
-<!--    </form>-->
+    <h1>username: <th:block th:text="${session.currentUser.getUsername()}"></th:block> </h1><br/>
+    <h2>role: <th:block th:text="${session.currentUser.getRole()}"></th:block> </h2>
 </div>
+
 </body>
 </html>
